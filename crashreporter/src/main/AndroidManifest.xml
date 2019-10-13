@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.avneesh.crashreporter">
+
+
+    <application android:supportsRtl="true">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.CrashReporterActivity"
+            android:launchMode="singleTask"
+            android:label="@string/label_crash_report"
+            android:taskAffinity="com.balsikandar.android.task"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.LogMessageActivity"
+            android:parentActivityName="com.avneesh.crashreporter.ui.CrashReporterActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.CustomLogMessageActivity"
+            android:parentActivityName="com.avneesh.crashreporter.ui.CrashReporterActivity"
+            android:label="@string/custom_logs" />
+    </application>
+
+</manifest>
